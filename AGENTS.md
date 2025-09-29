@@ -3,7 +3,9 @@ To keep streamlit GUI tests runnable inside the container install streamlit and 
 
 It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY IMPLEMENTED!!!!
 
+# Java Interop For Tests
 
+For testing we use Jpype if possible. This is for tests only!
 
 # Research Workflow Instructions
 - Before and during any research sessions, the agent must re-read this file to understand the current research ingestion state so it can continue processing sources and updating documentation appropriately.
@@ -16,7 +18,8 @@ It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY
 - You will need this tool: https://github.com/JohnnyBazooka89/StSModdingToolCardImagesCreator to create the correct INNER card images.
 
 # Ultimate Objective
-- The STSMODDER must deliver **FULL feature parity** with BaseMod, ModTheSpire, STSLib and ActLikeIt through the GUI so users never need to write a single line of code manually. Aquire all related wikis, tutorials, etc. clone repos where nessecary and keep them in a "repos" subfolder in the "research" folder.
+- The STSMODDER must deliver **FULL feature parity** with BaseMod, ModTheSpire, STSLib and ActLikeIt through the GUI so users never need to write a single line of code manually and can export a fully functional mode of any flavor that can be directly loaded and used using modthespire. Aquire all related wikis, tutorials, etc. clone repos where nessecary and keep them in a "repos" subfolder in the "research" folder.
+  
 
 
 # Zero Tolerance for Partial Work
