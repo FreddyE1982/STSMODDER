@@ -36,6 +36,7 @@ For testing we use Jpype if possible. This is for tests only!
 - When cloning repositories for analysis or review, always perform a full clone of the entire repository. Partial clones, sparse checkouts, or selectively downloaded histories are prohibited regardless of the time required.
 - As both a pre-flight and post-flight activity, read or re-read **all** Markdown (`*.md`) files in scope and act on any instructions or required updates arising from the planned or completed code changes.
 - Whenever a task involves the GUI in any capacity, explicitly re-read `sAGENTS.md` before beginning work.
+- After making any GUI changes, capture and provide all relevant up-to-date screenshots as part of the deliverable summary so reviewers can verify the visual impact immediately.
 - As an additional post-flight activity, immediately continue research into Slay the Spire mods and modding practices influenced by the latest code changes, and append new actionable TASKS to `developmentplan.md` reflecting those findings. This post-flight step is mandatory after every code change without exception.
 
 ## Structural Requirements
@@ -64,6 +65,7 @@ For testing we use Jpype if possible. This is for tests only!
 - When tests or code reveal missing dependencies, install them immediately as part of the workflow so the environment remains fully functional.
 - If automated installers fail because of network restrictions or blocked mirrors, obtain the required resources through an alternative manual workflow (e.g., direct archive downloads, mirrored registries) and complete the installation before proceeding.
 - Prefer real integrations over mocks; only employ mocking when direct interaction with the Slay the Spire game itself would otherwise be required.
+- Never commit binary assets (e.g., compiled artifacts, image binaries, `.class` files, `.jar` files, `.java` files, or any other non-text payloads). Explicitly exclude such binaries from both commits and PRs to keep the repository clean and reviewable.
 
 Adhering to these guidelines is mandatory for all contributions within this repository.
 
