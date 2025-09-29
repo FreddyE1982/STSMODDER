@@ -17,3 +17,6 @@ Extend the Status tab through plugin-provided panels that can subscribe to lifec
 
 ## Workflow Hub Architecture
 Document and implement a Workflows parent tab that dynamically enumerates workflow sub-tabs supplied by core modules and plugins. Provide plugin APIs so extensions can inject new workflow tabs, register dependency metadata, and expose Streamlit renderers while inheriting shared validation and persistence services.
+
+## Orchestrator Extension Points
+Encapsulate ModOrchestrator hooks so plugins can register new content generators (relics, potions, events) by contributing dataclass serializers and Java templates, ensuring the core builder automatically incorporates plugin-defined assets, localization bundles, and build-time validations without manual wiring.

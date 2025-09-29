@@ -7,6 +7,12 @@ It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY
 
 For testing we use Jpype if possible. This is for tests only!
 
+# JPype Execution Rules
+- JPype must always be installed and imported for every test run—no smoketesting, monkeypatching, or dependency stubbing is allowed.
+- The JVM classpath must contain real jar files. When ModTheSpire requires `desktop-1.0.jar`, recreate it on demand with `python -m scripts.create_fake_desktop_jar <path>` instead of committing binaries. Keep the script up to date whenever new stub classes are needed.
+- Ensure the development environment always remains fully configured so the Streamlit GUI can launch without manual intervention.
+- The ModTheSpire, BaseMod, StSLib, and ActLikeIt jars referenced by the configuration must exist on disk before executing tests.
+
 # Research Workflow Instructions
 - Before and during any research sessions, the agent must re-read this file to understand the current research ingestion state so it can continue processing sources and updating documentation appropriately.
 - The research workflow is strictly: 1) read a portion, 2) update developmentplan.md based on what was read, 3) repeat from step 1.
@@ -68,6 +74,10 @@ For testing we use Jpype if possible. This is for tests only!
 - Never commit binary assets (e.g., compiled artifacts, image binaries, `.class` files, `.jar` files, `.java` files, or any other non-text payloads). Explicitly exclude such binaries from both commits and PRs to keep the repository clean and reviewable.
 
 Adhering to these guidelines is mandatory for all contributions within this repository.
+
+# Mod Export Protocol
+- The definitive export pathway is `modorchestrator.ModOrchestrator`. All tooling, GUI flows, and automation must route through this orchestrator so exported mods include source, resources, and compiled jars ready for ModTheSpire.
+- Update the orchestrator whenever new content types become available from the GUI and document the workflow impact in README, guistructure, and related guides.
 
 ## Interface Parity & Documentation Protocols
 -

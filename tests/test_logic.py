@@ -18,6 +18,7 @@ class TestApplicationLogic:
             "basemod_path": "/tmp/BaseMod.jar",
             "stslib_path": "/tmp/StSLib.jar",
             "actlikeit_path": "/tmp/ActLikeIt.jar",
+            "desktop_jar_path": "/tmp/desktop-1.0.jar",
         }
         logic_instance.update_configuration(**updated)
         reloaded = ApplicationLogic()

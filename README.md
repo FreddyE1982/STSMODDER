@@ -9,13 +9,22 @@ STSMODDER delivers a Streamlit-driven experience for managing Slay the Spire mod
 - **JPype Test Harness** – `jpypetestorchestrator.JPypeTestOrchestrator` discovers baseline and plugin-provided integration suites, guaranteeing JVM readiness before executing tests.
 - **Streamlit GUI** – `gui.StreamlitGUI` provides configuration forms, live JVM controls, plugin registry introspection, and one-click execution of JPype-powered test suites.
 - **Command-Line Launcher** – `main.MainEntryPoint` bootstraps the Streamlit interface when invoked via `python main.py`, eliminating manual `streamlit run` commands.
+- **Mod Export Orchestrator** – `modorchestrator.ModOrchestrator` materializes GUI-authored content into Java sources, localization payloads, assets, and a compiled jar ready for ModTheSpire while dispatching lifecycle events for plugin extensions.
 
 ## Prerequisites
 
 - Python 3.10+
 - Java 8 (with access to the `libjvm` shared library)
-- BaseMod, ModTheSpire, STSLib, and ActLikeIt jar files
-- `desktop-1.0.jar` from your Slay the Spire installation
+- BaseMod, ModTheSpire, StSLib, and ActLikeIt jar files
+- `desktop-1.0.jar` from your Slay the Spire installation (or a script-generated equivalent for testing)
+
+Create the desktop jar when needed instead of checking binaries into version control:
+
+```bash
+python -m scripts.create_fake_desktop_jar tests/.cache/desktop-1.0.jar
+```
+
+Point `logic.ApplicationLogic` at the generated jar so both the GUI and JPype tests can start the JVM successfully.
 
 Install Python dependencies:
 
@@ -41,11 +50,14 @@ Execute the integration tests to verify the plugin registry, configuration persi
 pytest
 ```
 
+Always run the suite against an installed copy of JPype with the JVM classpath pointing to ModTheSpire, BaseMod, StSLib, ActLikeIt, and the configured desktop jar.
+
 ## Repository Structure
 
 - `plugin_manager.py` – Singleton plugin registry exposing modules, dynamic symbols, and event hooks.
 - `logic.py` – Configuration persistence, validation routines, and JPype lifecycle management.
 - `jpypetestorchestrator.py` – Test suite registration and execution through the JPype bridge.
+- `modorchestrator.py` – Export pipeline producing fully structured Slay the Spire mods directly from GUI specifications.
 - `gui.py` – Streamlit UI orchestration, environment forms, JVM control panel, and test runner.
 - `main.py` – Command-line entry launching the Streamlit app.
 - `tests/` – Pytest suite targeting plugin manager, logic, and orchestrator behavior.
@@ -55,3 +67,15 @@ pytest
 ## Extending via Plugins
 
 Create a Python module, expose classes or callables, and register it with `PluginManager.load_plugin`. Any symbol marked with a `build_suite` method and `__jpype_suite__ = True` will automatically contribute additional JPype test suites to the GUI and automation pipelines.
+
+## Mod Export Pipeline
+
+`modorchestrator.ModOrchestrator` is the canonical export pathway. Given a GUI-authored project it will:
+
+1. Create `<output>/<mod_id>/src/main/java` and `<output>/<mod_id>/src/main/resources` scaffolding.
+2. Generate the ModTheSpire entry point, card classes, and keyword registrations from the captured GUI state.
+3. Write localization JSON and copy all referenced assets under `<mod_id>Resources`.
+4. Compile the Java sources with `javac`, targeting Java 8 when the compiler supports `--release 8`.
+5. Package compiled classes and resources into `build/<mod_id>.jar`, ready for ModTheSpire.
+
+Plugins can subscribe to the `mod.build.start` and `mod.build.completed` events to extend validation, emit additional assets, or trigger downstream automation.

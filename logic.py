@@ -38,6 +38,7 @@ class ApplicationLogic:
         basemod_path: str = ""
         stslib_path: str = ""
         actlikeit_path: str = ""
+        desktop_jar_path: str = ""
         enabled_libraries: List[str] = field(default_factory=lambda: ["BaseMod", "StSLib", "ActLikeIt"])
         suppress_dependency_modal: bool = False
 
@@ -48,6 +49,7 @@ class ApplicationLogic:
                 "basemod_path": self.basemod_path,
                 "stslib_path": self.stslib_path,
                 "actlikeit_path": self.actlikeit_path,
+                "desktop_jar_path": self.desktop_jar_path,
                 "enabled_libraries": list(self.enabled_libraries),
                 "suppress_dependency_modal": self.suppress_dependency_modal,
             }
@@ -60,6 +62,7 @@ class ApplicationLogic:
             config.basemod_path = raw.get("basemod_path", "")
             config.stslib_path = raw.get("stslib_path", "")
             config.actlikeit_path = raw.get("actlikeit_path", "")
+            config.desktop_jar_path = raw.get("desktop_jar_path", "")
             config.enabled_libraries = list(raw.get("enabled_libraries", config.enabled_libraries))
             config.suppress_dependency_modal = bool(raw.get("suppress_dependency_modal", False))
             return config
@@ -137,6 +140,7 @@ class ApplicationLogic:
                 config.basemod_path,
                 config.stslib_path,
                 config.actlikeit_path,
+                config.desktop_jar_path,
             ]:
                 if path_value:
                     resolved = Path(path_value).expanduser().resolve()
@@ -203,6 +207,7 @@ class ApplicationLogic:
         results["basemod_path"] = self._optional_path_exists(config.basemod_path)
         results["stslib_path"] = self._optional_path_exists(config.stslib_path)
         results["actlikeit_path"] = self._optional_path_exists(config.actlikeit_path)
+        results["desktop_jar_path"] = self._optional_path_exists(config.desktop_jar_path)
         return results
 
     def _optional_path_exists(self, path_value: str) -> bool:
