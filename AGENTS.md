@@ -249,6 +249,7 @@ All steps **auto-populate** IDs following `myModID:ThingName` and keep a **reser
 ## Validation Matrix (examples the GUI must check before Save/Export)
 
 * **Assets present & sized:** Card face `250×190`, `_p` portrait `500×380`, character select `1920×1200`, frame parts in the 512/1024 family; orb inspect `164×164`. ([GitHub][1])
+* **GUI upload validation:** Every asset uploaded through the GUI must be immediately checked to confirm its format and resolution match the requirements for that specific asset type. If the asset fails validation, the upload must be blocked and the user must receive a verbose, friendly, non-technical explanation describing what to fix.
 * **Strings coverage:** For each content type (Card/Relic/Power/Event/Potion/UI/Character/Orb/RunMod/Blight), required string keys exist in the active default language. ([GitHub][3])
 * **Keyword registration feasibility:** All referenced keywords exist in `keywords.json` for the default language, and the keyword list can be registered (GUI can show the code pattern per BaseMod docs). ([GitHub][4])
 * **ID conventions:** `modID:ThingName` format, unique across the project; warn on illegal characters/spaces; preview the resulting resource paths as they’ll be looked up.
