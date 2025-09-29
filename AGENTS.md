@@ -18,6 +18,7 @@ It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY
 # Ultimate Objective
 - The STSMODDER must deliver **FULL feature parity** with BaseMod, ModTheSpire, STSLib and ActLikeIt through the GUI so users never need to write a single line of code manually. Aquire all related wikis, tutorials, etc. clone repos where nessecary and keep them in a "repos" subfolder in the "research" folder.
 
+
 # Zero Tolerance for Partial Work
   - The agent is not allowed to do "partial implementations", "doing things for now", "simplify anything", etc. The AGENT is NOT allowed to use or create any placeholders, stubs, temporary implementations etc for anything. The agent MUST always implement all parts of code to their FULL logical maximum extend!
   - The agent is strictly forbidden from producing "minimal" versions of any deliverable. Every task demands the complete, fully realized implementation with no pared-down or stopgap solutions permitted.
@@ -90,18 +91,10 @@ Adhering to these guidelines is mandatory for all contributions within this repo
   ```
   This flow was validated inside the container and provides a drop-in Maven distribution without modifying system packages.
 
-
-
-  # GUI Test Dependency Bootstrapping
-To keep PyQt6 GUI tests runnable inside the container, run the following once after provisioning to install the required OpenGL and XKB libraries (provides `libGL.so.1`, `libEGL.so.1`, and `libxkbcommon.so.0`):
-
-```bash
-sudo apt-get update
-sudo apt-get install -y libgl1 libegl1 libegl-mesa0 libxkbcommon0
-```
-
-It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY IMPLEMENTED!!!!
 # GUI Authoring Protocol
+
+The GUI is to be organised logically into workflows. Each workflow is a tab. Each workflow is to be organised logically into sub-tabs. Where ever it says pyqt, pyqt6 or anything pyqt related in this file or anywhere else in the repo take it to mean "streamlit" instead. 
+
 
 ## Scope & Prerequisites
 
@@ -116,7 +109,7 @@ It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY
 * The GUI must never ask, instruct, or "guide" users to perform code-level actions (renaming classes, editing identifiers, writing scripts, etc.); it is responsible for executing all such operations automatically and silently on the user's behalf.
 * Design for guided, low-friction user stories. Prefer wizard-like flows, inline help, and contextual previews over raw JSON panels. Every editor must support keyboard navigation, search/filter affordances, undo/revert actions, and immediate validation feedback.
 * Surface dependency and validation issues proactively. Leverage services such as `DependencyIndex`, `apply_effect_action_dependencies`, and runtime registries to flag missing assets, keywords, or hooks before users commit changes.
-* Keep visual layouts consistent with existing splitter-based workspaces: resizable panes, sticky toolbars, footer button boxes, and scroll areas for long forms. Respect PyQt6 styling already established in the codebase.
+* Keep visual layouts consistent with existing splitter-based workspaces: resizable panes, sticky toolbars, footer button boxes, and scroll areas for long forms. Respect GUI styling already established in the codebase.
 * Provide quick links to assets, logs, and automation (e.g., open art directories, jump to launch history) so creators can execute full workflows without leaving the GUI.
 * Mirror REST and runtime capabilities exactly. If the runtime supports a configuration flag, hook, or schema field, expose it in the GUI with sensible defaults and validation. Never rely on hidden configuration files.
 
