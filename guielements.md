@@ -20,3 +20,6 @@
 
 [complete] Notification System
 - **Toast Notifications**: Streamlit `st.toast` wrappers delivering success/error/warning feedback from orchestrator and plugin operations.
+
+[todo] Workflows Tab Layout
+- **Workflows Parent Tab**: Streamlit tabset labeled "Workflows" that nests all workflow-specific sub-tabs and binds each to its respective orchestrator controllers (character builder, enemy authoring, relic designer, etc.), guaranteeing no workflow UI exists outside the parent tab.
