@@ -2,6 +2,7 @@
 To keep streamlit GUI tests runnable inside the container install streamlit and all its dependencies and everything else needed for testing
 
 It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY IMPLEMENTED!!!!
+
 # Research Workflow Instructions
 - Before and during any research sessions, the agent must re-read this file to understand the current research ingestion state so it can continue processing sources and updating documentation appropriately.
 - The research workflow is strictly: 1) read a portion, 2) update developmentplan.md based on what was read, 3) repeat from step 1.
@@ -9,9 +10,10 @@ It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY
 - Integrate research findings directly into the relevant existing sections of developmentplan.md with [todo] markers rather than appending generic research-result sections.
 - Create new actionable development steps marked with [todo] and insert or append them at the correct places in developmentplan.md instead of collecting them separately.
 - Every new addition to developmentplan.md must include the full copied lines from the source material (including any Java explanations or code snippets) that justify the addition.
+- create and maintan a RESEARCH folder in which you keep all research results (for example tutorials, wikis, etc as md files)
 
 # Ultimate Objective
-- The Mod Manager must deliver **FULL feature parity** with BaseMod, ModTheSpire, and STSLib through the GUI so users never need to write a single line of code manually.
+- The STSMODDER must deliver **FULL feature parity** with BaseMod, ModTheSpire, STSLib and ActLikeIt through the GUI so users never need to write a single line of code manually. Aquire all related wikis, tutorials, etc. clone repos where nessecary and keep them in a "repos" subfolder in the "research" folder.
 
 # Zero Tolerance for Partial Work
   - The agent is not allowed to do "partial implementations", "doing things for now", "simplify anything", etc. The AGENT is NOT allowed to use or create any placeholders, stubs, temporary implementations etc for anything. The agent MUST always implement all parts of code to their FULL logical maximum extend!
