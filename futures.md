@@ -18,5 +18,8 @@ Extend the Status tab through plugin-provided panels that can subscribe to lifec
 ## Workflow Hub Architecture
 Document and implement a Workflows parent tab that dynamically enumerates workflow sub-tabs supplied by core modules and plugins. Provide plugin APIs so extensions can inject new workflow tabs, register dependency metadata, and expose Streamlit renderers while inheriting shared validation and persistence services.
 
+## Character Workflow Extension Kits
+Once the core Character workflow lands, ship plugin-facing schemas describing metadata, visuals, and loadout payloads so plugins can bolt on advanced generators (e.g., auto-building starting decks from archetype templates, importing legacy BaseMod character JSON) without touching first-party panels. Document the payload structure, event hooks (`on_character_metadata_change`, `on_character_assets_uploaded`, `on_character_loadout_composed`), and recommended UX patterns for adding optional advanced sections to the character sub-tab.
+
 ## Orchestrator Extension Points
 Encapsulate ModOrchestrator hooks so plugins can register new content generators (relics, potions, events) by contributing dataclass serializers and Java templates, ensuring the core builder automatically incorporates plugin-defined assets, localization bundles, and build-time validations without manual wiring.
