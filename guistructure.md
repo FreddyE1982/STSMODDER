@@ -4,6 +4,8 @@
 
 [complete] Provide a central orchestration dashboard with tabs for "JPype Bridge", "Library Status", "Plugin Registry", and "Test Suites" to reflect the runtime lifecycle of the orchestrator and expose quick actions for starting or shutting down the JVM, running integration tests, and inspecting plugin contributions.
 
+[complete] Introduce a top-level "Status" tab ahead of the existing runtime workflow tabs so environment validation, JVM state metrics, and the latest test results move out of the sidebar into a dedicated workspace, with guielements.md kept in sync for the consolidated layout.
+
 [todo] Implement a Streamlit-based log viewer panel that streams structured log records (JPype, plugin system, GUI interactions) with filtering controls for severity, module, and timeframe.
 
 [complete] Create a contextual helper modal describing BaseMod requirements and StSLib dependency interplay, ensuring compliance with the AGENTS instructions about GUI-first documentation and offering a "Do not show again" persistence toggle.

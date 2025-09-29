@@ -45,6 +45,18 @@
 > # ActLikeIt
 > ActLikeIt is an extension to the Slay the Spire modding API that allows modders to add new Acts to the game.
 
+[todo] Enhance the Status tab to provide remediation guidance for dependency readiness, leveraging plugin_manager hooks so plugins can append detectors covering BaseMod installation and ModTheSpire runtime expectations.
+> ## Installation ##
+> 1. Copy `target/BaseMod.jar` to your ModTheSpire mods directory. Maven will automatically do this after packaging if your mods directory is located at `../_ModTheSpire/mods` relative to the repo.
+>
+> ### Running Mods ###
+> 1. Run ModTheSpire.
+>     * For Windows, run `MTS.cmd`.
+>     * For Linux, run `MTS.sh`.
+>     * Or run `ModTheSpire.jar` with Java 8.
+> 2. Select the mod(s) you want to use.
+> 3. Press 'Play'.
+
 [complete] Ensure the application embeds JPype lifecycle management to start and stop the JVM exactly once per session and expose the resulting bridge to plugin consumers for test orchestration, referencing JPype's recommended initialization pattern.
 > JPype is an effort to allow python programs full access to Java class libraries.  This is achieved not through re-implementing Python, as Jython/JPython does, but rather through interfacing at the native level in both Virtual Machines.  Eventually, it should be possible to replace Java with Python in many, though not all, situations. (If you are curious about the project, and want to join the JPype project, please join the project on github).
 > 

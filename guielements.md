@@ -10,6 +10,11 @@
 - **Plugin Registry Table**: Interactive table listing registered plugins, exposed symbols, and health indicators as provided by `plugin_manager.PluginManager`.
 - **Test Suite Runner Panel**: Buttons to trigger baseline smoke tests and mod-specific regression suites managed by `jpypetestorchestrator.JPypeTestOrchestrator`.
 
+[complete] Status Tab Panels
+- **Runtime Overview Metric**: `st.metric` reflecting the active JVM state sourced from `logic.JPypeBridgeController.get_state()` so authors see engine readiness at a glance.
+- **Environment Validation Feed**: Streamlit success/warning callouts generated from `logic.ApplicationLogic.validate_environment()` summarizing dependency availability across BaseMod, ModTheSpire, StSLib, and ActLikeIt paths.
+- **Recent Test Snapshot**: JSON viewer mirroring `st.session_state["last_test_results"]` so the dashboard mirrors the last executed suite outcome without reopening the Tests tab.
+
 [complete] Modal Dialogs
 - **Dependency Guidance Modal**: Streamlit modal presenting BaseMod/ModTheSpire prerequisites with "Do not show again" preference stored in a persistent configuration file.
 
