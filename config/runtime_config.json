@@ -4,6 +4,7 @@
   "basemod_path": "",
   "stslib_path": "",
   "actlikeit_path": "",
+  "desktop_jar_path": "",
   "enabled_libraries": [
     "BaseMod",
     "StSLib",

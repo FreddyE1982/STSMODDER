@@ -77,3 +77,8 @@
 [todo] After delivering the initial orchestration stack, expand research on BaseMod hooks, StSLib additions, and ActLikeIt act definitions to append workflow-specific tasks here.
 
 [todo] Architect the unified "Workflows" parent tab with sub-tabs for every authoring flow, aligning GUI, REST, and plugin hooks so workflow logic lives exclusively within this hierarchy and is fully discoverable via the plugin manager registry.
+
+[todo] Extend `ModOrchestrator` to validate BaseMod build prerequisites so exports reflect the official steps below before invoking compilation.
+> 1. (If you haven't already) `mvn install` ModTheSpire Altenatively, modify pom.xml to point to a local copy of the JAR.
+> 2. Copy `desktop-1.0.jar` from your Slay the Spire folder into `../lib` relative to the repo.
+> 3. Run `mvn package`
