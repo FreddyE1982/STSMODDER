@@ -11,3 +11,5 @@
 [complete] Create a contextual helper modal describing BaseMod requirements and StSLib dependency interplay, ensuring compliance with the AGENTS instructions about GUI-first documentation and offering a "Do not show again" persistence toggle.
 
 [todo] Reserve a dedicated area for ModTheSpire launch shortcuts, including jar selection, mod enablement toggles, and validation warnings for missing dependencies, enabling seamless alignment with the development plan's ModTheSpire integration objectives.
+
+[todo] Define a top-level "Workflows" tab containing sub-tabs for every authoring workflow (characters, enemies, cards, relics, potions, acts, composite mods, and future additions), ensuring no workflow panels appear outside this hierarchy and documenting the binding expectations for each sub-tab.

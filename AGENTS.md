@@ -83,6 +83,8 @@ Adhering to these guidelines is mandatory for all contributions within this repo
   5. Creating a mod that packages or composes other mods generated through the application, including all integration sub-workflows.
   6. Any additional logical workflows and sub-workflows necessary to cover the entire feature surface of BaseMod, ModTheSpire, STSLib, and ActLikeIt.
 
+* All GUI workflows must be consolidated within a dedicated top-level **"Workflows"** tab. Each workflow is represented solely as a sub-tab under this parent, and no workflow-specific UI may exist outside this hierarchy.
+
 ## Data Portability & Schema Governance
 - All project data managed by the application must remain fully importable/exportable via a canonical YAML representation. When new features, data structures, or variables are introduced or modified, update the YAML loader/exporter implementations and the example YAML in the repository root in the same change set.
 - Maintain `featuresvarsanddatastructure.md` as a synchronized catalog of every feature, data structure, and variable, including each item's purpose and its relationships; update it atomically with any related code or documentation change.

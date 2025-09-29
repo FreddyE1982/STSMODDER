@@ -75,3 +75,5 @@
 [complete] Document and implement a global plugin system that exposes every runtime symbol—classes, functions, instances, configuration values—so plugin authors can extend the tool without monkey patching.
 
 [todo] After delivering the initial orchestration stack, expand research on BaseMod hooks, StSLib additions, and ActLikeIt act definitions to append workflow-specific tasks here.
+
+[todo] Architect the unified "Workflows" parent tab with sub-tabs for every authoring flow, aligning GUI, REST, and plugin hooks so workflow logic lives exclusively within this hierarchy and is fully discoverable via the plugin manager registry.

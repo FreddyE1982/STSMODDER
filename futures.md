@@ -14,3 +14,6 @@ Create a plugin packaging format (signed zip) allowing community distribution. T
 
 ## Status Telemetry Integrations
 Extend the Status tab through plugin-provided panels that can subscribe to lifecycle events from `plugin_manager.PluginManager.dispatch_event`. Each plugin should be able to register custom render callbacks contributing Streamlit components to a shared grid, enabling surfaced health checks for BaseMod asset validation, ModTheSpire launch readiness, and StSLib mechanic coverage without touching the core GUI implementation.
+
+## Workflow Hub Architecture
+Document and implement a Workflows parent tab that dynamically enumerates workflow sub-tabs supplied by core modules and plugins. Provide plugin APIs so extensions can inject new workflow tabs, register dependency metadata, and expose Streamlit renderers while inheriting shared validation and persistence services.
