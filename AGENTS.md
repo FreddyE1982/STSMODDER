@@ -172,7 +172,7 @@ The repository already supports far more than the character-centric flows above.
 ## Documentation, Testing, and Parity
 
 * Update or add GUI unit tests (`tests/gui/`) whenever you introduce new widgets, validation logic, or workflows. Tests must cover form population, validation gating, and persistence wiring.
-* Synchronise REST endpoints with GUI workflows. If a GUI action manipulates bundles, launch profiles, or content definitions, confirm equivalent REST routes exist and update `restapi.md` accordingly.
+*
 * Keep the YAML example (`example_project.yaml`) and serialization schemas current whenever GUI changes introduce new data fields or structures.
 * Record any newly discovered requirements or follow-up tasks in `developmentplan.md` with `[todo]` markers, and append matching updates to `guistructure.md` before implementation.
 
