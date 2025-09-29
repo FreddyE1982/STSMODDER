@@ -1,0 +1,13 @@
+{
+  "java_home": "",
+  "modthespire_jar": "",
+  "basemod_path": "",
+  "stslib_path": "",
+  "actlikeit_path": "",
+  "enabled_libraries": [
+    "BaseMod",
+    "StSLib",
+    "ActLikeIt"
+  ],
+  "suppress_dependency_modal": false
+}
