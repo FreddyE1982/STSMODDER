@@ -75,3 +75,9 @@
 [complete] Document and implement a global plugin system that exposes every runtime symbol—classes, functions, instances, configuration values—so plugin authors can extend the tool without monkey patching.
 
 [todo] After delivering the initial orchestration stack, expand research on BaseMod hooks, StSLib additions, and ActLikeIt act definitions to append workflow-specific tasks here.
+
+> add to AGENTS.md that NO JPype smoketesting or monkeypatching is allowed! WE NEED TO ALWAYS INSTALL JPype for testing! TESTS MUST REALLY USE Jpype!!! must set up the enviorment so that gui can be used by the assistant successfully. (we must use a fake desktop-1.0.jar for testing though, create a script that creates such a fake desktop-1.0.jar. we can not commit this jar! we must recreate it using the script when we need it.  the script must be updated as needed. add all this to AGENTS.md too!!! )
+> 
+> create a file "modorchestrator.py" ---> this will orchestrate the creation of the actual mod from what we have created in the gui, it will create all nessecary files including java code, create the correct file structure etc
+
+[complete] Enforce JPype integration during testing, author the reusable fake `desktop-1.0.jar` generator, and establish `modorchestrator.ModOrchestrator` as the sole export path so GUI-authored data becomes a fully structured mod with Java sources, resources, asset scaffolding, and build metadata.

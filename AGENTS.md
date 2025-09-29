@@ -7,6 +7,11 @@ It is absolutley forbidden to do ANY scafolding and EVERYTHING NEEDS TO BE FULLY
 
 For testing we use Jpype if possible. This is for tests only!
 
+# JPype Execution Policy
+- JPype must always be installed and invoked during testing. Do **not** rely on smoke placeholders, mocks, or monkeypatches; execute the JVM for every JPype-oriented test suite.
+- A fake `desktop-1.0.jar` must be generated on demand via `scripts/create_fake_desktop_jar.py`. Never commit the produced jar—recreate it whenever needed.
+- When extending tests or the JPype orchestrator, ensure ModTheSpire/BaseMod/StSLib/ActLikeIt classpath entries point to the regenerated jar artifacts created by the script above.
+
 # Research Workflow Instructions
 - Before and during any research sessions, the agent must re-read this file to understand the current research ingestion state so it can continue processing sources and updating documentation appropriately.
 - The research workflow is strictly: 1) read a portion, 2) update developmentplan.md based on what was read, 3) repeat from step 1.
@@ -44,6 +49,14 @@ For testing we use Jpype if possible. This is for tests only!
 - Keep **one class per file** unless tightly coupled classes form a cohesive module; group only genuinely related classes together.
 - Ensure **one function per responsibility**; functions must have a single, clear objective.
 - Define all functions within classes; free-standing functions are disallowed.
+
+## Mod Export & Orchestration
+- The file `modorchestrator.py` is the mandatory pathway for generating Slay the Spire mods. Any new export workflow, CLI command, or GUI button must call into the orchestrator rather than writing files manually.
+- Keep `modorchestrator.ModOrchestrator` fully synchronized with GUI data structures and update its generation routines when new content types are introduced.
+- Update `scripts/create_fake_desktop_jar.py` whenever the generation requirements evolve so automated tests and developers can reproduce compliant classpaths without shipping binaries.
+
+## GUI Environment Preparation
+- Always ensure the Streamlit environment variables configured in `main.MainEntryPoint._prepare_environment` remain compatible with containerized execution. Extend this method instead of setting ad-hoc environment variables elsewhere.
 
 ## Planning & Documentation
 - Maintain an evolving `developmentplan.md` at the repository root.
