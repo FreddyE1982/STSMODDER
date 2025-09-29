@@ -11,3 +11,6 @@ Extend the JPype test orchestrator with scenario scripting so testers can define
 
 ## Plugin Marketplace
 Create a plugin packaging format (signed zip) allowing community distribution. The plugin manager should verify signatures, resolve dependencies, and sandbox plugin execution while still exposing the complete repository API through controlled facades.
+
+## Status Telemetry Integrations
+Extend the Status tab through plugin-provided panels that can subscribe to lifecycle events from `plugin_manager.PluginManager.dispatch_event`. Each plugin should be able to register custom render callbacks contributing Streamlit components to a shared grid, enabling surfaced health checks for BaseMod asset validation, ModTheSpire launch readiness, and StSLib mechanic coverage without touching the core GUI implementation.

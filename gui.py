@@ -136,24 +136,41 @@ class StreamlitGUI:
                     actlikeit_path=actlikeit_path,
                 )
                 st.success("Configuration saved successfully")
-            self._render_environment_status()
+            self._render_status_hint()
 
-    def _render_environment_status(self) -> None:
+    def _render_status_hint(self) -> None:
+        st.caption(
+            "Looking for dependency checks? The new **Status** tab consolidates runtime"
+            " health, environment validation, and recent test outcomes."
+        )
+
+    def _render_main_sections(self) -> None:
+        tabs = st.tabs(["Status", "JPype Bridge", "Libraries", "Plugins", "Tests"])
+        self._render_status_tab(tabs[0])
+        self._render_bridge_tab(tabs[1])
+        self._render_library_tab(tabs[2])
+        self._render_plugin_tab(tabs[3])
+        self._render_tests_tab(tabs[4])
+
+    def _render_status_tab(self, container: st.delta_generator.DeltaGenerator) -> None:
+        with container:
+            state = self._logic.bridge_controller.get_state()
+            container.metric("JVM State", state.value)
+            self._render_environment_status(container)
+            last_results = st.session_state.get("last_test_results")
+            if last_results:
+                container.subheader("Most Recent Test Results")
+                container.json(last_results)
+
+    def _render_environment_status(self, container: st.delta_generator.DeltaGenerator) -> None:
         validation = self._logic.validate_environment()
-        st.subheader("Environment Status")
+        container.subheader("Environment Status")
         for key, is_valid in validation.items():
             label = key.replace("_", " ").title()
             if is_valid:
-                st.success(f"{label}: OK")
+                container.success(f"{label}: OK")
             else:
-                st.warning(f"{label}: Missing or invalid")
-
-    def _render_main_sections(self) -> None:
-        tabs = st.tabs(["JPype Bridge", "Libraries", "Plugins", "Tests"])
-        self._render_bridge_tab(tabs[0])
-        self._render_library_tab(tabs[1])
-        self._render_plugin_tab(tabs[2])
-        self._render_tests_tab(tabs[3])
+                container.warning(f"{label}: Missing or invalid")
 
     def _render_bridge_tab(self, container: st.delta_generator.DeltaGenerator) -> None:
         with container:
